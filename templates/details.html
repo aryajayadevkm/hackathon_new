@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS radio buttons</title>
+  
+  
+  
+      <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+
+  
+</head>
+
+<body>
+
+
+<div class="container">
+  
+  <h2>Select your product</h2>
+  <form method="get" action="{{ url_for('product') }}">
+  <select name="product">
+    {% for item in list_of_options %}
+    <option value="{{item}}">{{item}}</option>
+    {% endfor %}
+  </select>
+    <button type="submit" id="save-btn" name="submit" action="post"> Submit </button>
+  </form>
+  <!--
+  <ul>
+  <li>
+    <input type="radio" id="f-option" name="selector">
+    <label for="f-option">Colgate Toothpaste Dora The Explorer</label>
+    
+    <div class="check"></div>
+  </li>
+  
+  <li>
+    <input type="radio" id="s-option" name="selector">
+    <label for="s-option">Colgate Sensitive Multiprotection Toothpaste</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+  
+  <li>
+    <input type="radio" id="t-option" name="selector">
+    <label for="t-option">Colgate Total Toothpaste Clean Mint</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+    <input type="radio" id="t-option" name="selector">
+    <label for="t-option">Colgate Total Toothpaste Clean Mint</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+  <li>
+    <input type="radio" id="t-option" name="selector">
+    <label for="t-option">Colgate Total plus Whitening Toothpaste</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+
+  <li>
+    <input type="radio" id="t-option" name="selector">
+    <label for="t-option">8
+Colgate Dr. Fresh Travel Size Colgate Toothpaste & Toothbrush 1 Set</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+
+  <li>
+    <input type="radio" id="t-option" name="selector">
+    <label for="t-option">Colgate Cavity Protection Fluoride Toothpaste, Regular Flavor</label>
+    
+    <div class="check"><div class="inside"></div></div>
+  </li>
+
+
+
+
+</ul>-->
+</div>
+
+
+
+</div>
+
+</body>
+
+</html>
