@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as soup
-#from goodguide import page_soup, get_ingred_links, get_ingredients, get_rating, ingred_hazard, the_ingred_loop
-
+from goodguide import page_soup, get_ingred_links, get_ingredients, get_rating, ingred_hazard, the_ingred_loop
+import sentiment_analysis
 app = Flask(__name__)
 app.secret_key = "itsasecret"
 @app.route('/', methods= ['GET','POST'])
@@ -49,12 +49,22 @@ def product():
         if product.lower() == k.lower():
             session['link'] = div.find('a')['href']
             return redirect(url_for('/product/review'))
-"""
-@app.route("/product/review")
+
+@app.route("/product/review", methods = ['GET','POST'])
 def product_review():
-    link = session.get('link')
-    page_soup(link)
-"""
+    my_url = session.get('link')
+    page_soup = page_soup(my_url)
+    if request.method == 'GET':
+        return render_template('result.html')
+    get_rating()
+    get_ingredients = get_ingredients()
+    get_ingred_links = get_ingred_links()
+    ingred_hazard(get_ingred_link, get_ingredient)
+    the_ingred_loop()
+
+    sa = sentiment_analysis.SentimentAnalysis()
+    sa.sentiment_analysis.DownloadData()
+
 
 
 
